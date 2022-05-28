@@ -36,7 +36,7 @@ const styles = {
     height: '3rem',
     bottom: '-3rem',
     right: 0,
-    backgroundImage : 'linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%)',
+    backgroundImage : (theme) => `linear-gradient(to bottom, rgba(255,255,255, 0), ${theme.palette.background.default} 90%)`,
   }
 }
 
