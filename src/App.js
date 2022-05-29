@@ -1,7 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Box, CssBaseline, useMediaQuery, Switch, FormControlLabel } from '@mui/material';
+import { CssBaseline, useMediaQuery } from '@mui/material';
+
 import Header from './components/Header';
+import Navbar from './components/Navbar';
 
 const App = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -9,8 +11,29 @@ const App = () => {
 
   const theme = useMemo(() => 
     createTheme({
+      breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+          md: 1000,
+          lg: 1200,
+          xl: 1536,
+        }
+      },
       palette: {
         mode: mode,
+        customBlue: {
+          main: '#1a0b64',
+        },
+        customTeal: {
+          main: '#4fc9bc',
+        },
+        customGreen: {
+          main: '#99ed3e',
+        },
+        customYellow: {
+          main: '#fdfeb6',
+        },
       },
     }),
     [mode],
@@ -23,8 +46,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <FormControlLabel control={<Switch onChange={toggleDarkMode} />} label={mode} />
-      <Box sx={{height: '10rem'}} />
+      <Navbar toggleDarkMode={toggleDarkMode} />
       <Header />
     </ThemeProvider>
   )
