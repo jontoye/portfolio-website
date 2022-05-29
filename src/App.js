@@ -35,6 +35,15 @@ const App = () => {
           main: '#fdfeb6',
         },
       },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              textTransform: 'none',
+            }
+          }
+        }
+      }
     }),
     [mode],
   );
