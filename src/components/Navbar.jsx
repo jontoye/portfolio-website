@@ -48,7 +48,7 @@ const Navbar = ({ toggleDarkMode }) => {
   }
 
   return (
-    <AppBar position='static' color='default'>
+    <AppBar position='fixed' color='default'>
       <Container>
         <Toolbar sx={styles.toolbar}>
           <Box sx={styles.social}>

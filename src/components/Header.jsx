@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles';
 const styles = {
   section: {
     maxWidth: { xs: '700px', md: '1200px' },
-    paddingTop: { xs: '2rem', md: '4rem'}
+    paddingTop: { xs: '5rem', md: '11rem'},
   },
   greeting: {
     display: { xs: 'none', sm: 'block' }

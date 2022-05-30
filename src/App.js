@@ -4,6 +4,7 @@ import { CssBaseline, useMediaQuery } from '@mui/material';
 
 import Header from './components/Header';
 import Navbar from './components/Navbar';
+import About from './components/About';
 
 const App = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -15,6 +16,7 @@ const App = () => {
         values: {
           xs: 0,
           sm: 600,
+          custom: 760,
           md: 1000,
           lg: 1200,
           xl: 1536,
@@ -57,6 +59,10 @@ const App = () => {
       <CssBaseline />
       <Navbar toggleDarkMode={toggleDarkMode} />
       <Header />
+      <About />
+      {/* <Projects />
+      <Contact />
+      <Footer /> */}
     </ThemeProvider>
   )
 }
