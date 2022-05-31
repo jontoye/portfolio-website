@@ -12,7 +12,11 @@ import CodeIcon from '@mui/icons-material/Code';
 import InfoIcon from '@mui/icons-material/Info';
 import PersonIcon from '@mui/icons-material/Person';
 
-const pages = [{name: 'About', icon: InfoIcon}, {name: 'Projects', icon: CodeIcon}, {name: 'Contact', icon: PersonIcon}];
+const pages = [
+  {name: 'About', icon: InfoIcon, href: '#about'}, 
+  {name: 'Projects', icon: CodeIcon, href: '#projects'}, 
+  {name: 'Contact', icon: PersonIcon, href: '#contact'}
+];
 
 const styles = {
   toolbar: {
@@ -66,7 +70,7 @@ const Navbar = ({ toggleDarkMode }) => {
 
           <Box sx={{ display: { xs: 'none', sm: 'flex' }}}>
             {pages.map(page => (
-              <Button variant='text' color='inherit' key={page.name}>{page.name}</Button>
+              <Button variant='text' color='inherit' key={page.name} href={page.href}>{page.name}</Button>
             ))}
           </Box>
 
