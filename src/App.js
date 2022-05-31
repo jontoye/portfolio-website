@@ -49,7 +49,7 @@ const App = () => {
           },
         },
       }),
-    [mode],
+    [mode]
   );
 
   const toggleDarkMode = () => {
