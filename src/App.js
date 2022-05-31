@@ -11,49 +11,50 @@ const App = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [mode, setMode] = useState(prefersDarkMode ? 'dark' : 'light');
 
-  const theme = useMemo(() => 
-    createTheme({
-      breakpoints: {
-        values: {
-          xs: 0,
-          sm: 600,
-          custom: 760,
-          md: 1000,
-          lg: 1200,
-          xl: 1536,
-        }
-      },
-      palette: {
-        mode: mode,
-        customBlue: {
-          main: '#1a0b64',
+  const theme = useMemo(
+    () =>
+      createTheme({
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 600,
+            custom: 760,
+            md: 1000,
+            lg: 1200,
+            xl: 1536,
+          },
         },
-        customTeal: {
-          main: '#4fc9bc',
+        palette: {
+          mode: mode,
+          customBlue: {
+            main: '#1a0b64',
+          },
+          customTeal: {
+            main: '#4fc9bc',
+          },
+          customGreen: {
+            main: '#99ed3e',
+          },
+          customYellow: {
+            main: '#fdfeb6',
+          },
         },
-        customGreen: {
-          main: '#99ed3e',
+        components: {
+          MuiButton: {
+            styleOverrides: {
+              root: {
+                textTransform: 'none',
+              },
+            },
+          },
         },
-        customYellow: {
-          main: '#fdfeb6',
-        },
-      },
-      components: {
-        MuiButton: {
-          styleOverrides: {
-            root: {
-              textTransform: 'none',
-            }
-          }
-        }
-      }
-    }),
+      }),
     [mode],
   );
 
   const toggleDarkMode = () => {
-    setMode(prev => prev === 'dark' ? 'light' : 'dark');
-  }
+    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -65,7 +66,7 @@ const App = () => {
       {/* <Contact />
       <Footer /> */}
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

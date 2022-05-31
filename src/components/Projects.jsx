@@ -1,10 +1,8 @@
-import React from 'react'
-import { Container } from '@mui/material'
+import React from 'react';
+import { Container } from '@mui/material';
 
 const Projects = () => {
-  return (
-    <Container id='projects'>Projects</Container>
-  )
-}
+  return <Container id="projects">Projects</Container>;
+};
 
-export default Projects
+export default Projects;
