@@ -2,12 +2,12 @@ import React, { useMemo, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, useMediaQuery } from '@mui/material';
 
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import About from './components/About';
-import Projects from './components/Projects';
+import Header from '../components/Header';
+import Navbar from '../components/Navbar';
+import About from '../components/About';
+import Projects from '../components/Projects';
 
-const App = () => {
+const IndexPage = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [mode, setMode] = useState(prefersDarkMode ? 'dark' : 'light');
 
@@ -69,4 +69,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default IndexPage;

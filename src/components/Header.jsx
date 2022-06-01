@@ -1,6 +1,8 @@
 import React from 'react';
 import { Avatar, Box, Container, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import BackgroundImg from '../images/bg3.jpeg';
+import ProfileImg from '../images/profile-img.png';
 
 const styles = {
   section: {
@@ -25,7 +27,7 @@ const styles = {
     display: { sm: 'none' },
     width: '5rem',
     height: '5rem',
-    background: 'url("images/bg3.jpeg")',
+    background: `url(${BackgroundImg})`,
     backgroundSize: 'cover',
   },
   profileImage: {
@@ -33,7 +35,7 @@ const styles = {
     position: 'relative',
     height: '22rem',
     width: '100%',
-    backgroundImage: 'url("images/bg3.jpeg")',
+    backgroundImage: `url(${BackgroundImg})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'bottom',
@@ -81,10 +83,10 @@ const Header = () => {
 
           <Grid item xs={4} sm={12} md={7} order={{ xs: 1, sm: 2 }} sx={styles.columnImage}>
             <Box sx={styles.profileImage}>
-              <img src="images/profile-img.png" alt="Profile" />
+              <img src={ProfileImg} alt="Profile" />
               <Box sx={styles.imageOverlay} />
             </Box>
-            <Avatar sx={styles.profileAvatar} src="images/profile-img.png" alt="Profile" />
+            <Avatar sx={styles.profileAvatar} src={ProfileImg} alt="Profile" />
           </Grid>
         </Grid>
       </Container>

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import GrowthImg from '../images/growth.png';
+import PuzzleImg from '../images/puzzle.png';
+import LoveImg from '../images/love.png';
 
 const skills = [
-  { id: 1, name: 'Love creating and growing things', img: 'images/growth.png' },
-  { id: 2, name: 'Proven ability to solve problems', img: 'images/puzzle.png' },
-  { id: 3, name: 'Friendly and empathetic communication', img: 'images/love.png' },
+  { id: 1, name: 'Love creating and growing things', img: GrowthImg },
+  { id: 2, name: 'Proven ability to solve problems', img: PuzzleImg },
+  { id: 3, name: 'Friendly and empathetic communication', img: LoveImg },
 ];
 
 const styles = {
