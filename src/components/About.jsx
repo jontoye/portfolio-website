@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import { Card, CardContent, Container, Grid, Link, Typography } from '@mui/material';
 import GrowthImg from '../images/growth.png';
 import PuzzleImg from '../images/puzzle.png';
 import LoveImg from '../images/love.png';
@@ -16,6 +16,10 @@ const styles = {
   },
   summary: {
     margin: '0 auto',
+  },
+  summaryContent: {
+    fontSize: '1.125rem',
+    lineHeight: 1.5,
   },
   skills: {
     display: 'flex',
@@ -50,22 +54,22 @@ const SkillCard = ({ skill, img }) => {
 
 const About = () => {
   return (
-    <Container id="about" /*sx={{ backgroundColor: 'action.hover'}}*/>
+    <Container id="about">
       <Grid container sx={styles.section} spacing={5}>
-        <Grid item xs={10} /*md={8}*/ sx={styles.summary}>
-          <Typography variant="h6" gutterBottom>
+        <Grid item xs={12} md={10} sx={styles.summary}>
+          <Typography variant="h5" gutterBottom>
             About me
           </Typography>
-          <Typography variant="body">
+          <Typography sx={styles.summaryContent}>
             I am a recent bootcamp graduate with a passion for learning and a wide range of skills
             and interests. As a former Cook/Baker with a degree in Civil Engineering, I have a
             unique skill set that blends analytical thinking with creativity - exactly what is
             needed to build beautiful websites that solve problems! Take a look at some of{' '}
-            <a href="#projects">my projects</a> below and <a href="#">get in touch</a> to learn
-            more!
+            <Link href="#projects">my projects</Link> below and <Link href="#">get in touch</Link>{' '}
+            to learn more!
           </Typography>
         </Grid>
-        <Grid item xs={10} /*md={4}*/ sx={styles.skills}>
+        <Grid item xs={12} md={10} sx={styles.skills}>
           {skills.map((skill) => (
             <SkillCard key={skill.id} skill={skill.name} img={skill.img} />
           ))}

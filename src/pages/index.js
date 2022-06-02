@@ -5,7 +5,7 @@ import { CssBaseline, useMediaQuery } from '@mui/material';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
-import Projects from '../components/Projects';
+import ProjectGrid from '../components/ProjectGrid';
 
 const IndexPage = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -62,7 +62,7 @@ const IndexPage = () => {
       <Navbar toggleDarkMode={toggleDarkMode} />
       <Header />
       <About />
-      <Projects />
+      <ProjectGrid />
       {/* <Contact />
       <Footer /> */}
     </ThemeProvider>
