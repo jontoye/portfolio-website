@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Container, Grid, Link, Typography } from '@mui/material';
+import { Card, CardContent, Container, Grid, Link, Typography, useTheme } from '@mui/material';
 import GrowthImg from '../images/growth.png';
 import PuzzleImg from '../images/puzzle.png';
 import LoveImg from '../images/love.png';
@@ -17,6 +17,7 @@ const styles = {
   },
   summary: {
     margin: '0 auto',
+    marginBottom: '5rem',
   },
   summaryContent: {
     fontSize: '1.125rem',
@@ -27,6 +28,10 @@ const styles = {
     flexDirection: { xs: 'column', custom: 'row' },
     justifyContent: 'space-between',
     margin: '0 auto',
+    padding: '2rem 4rem',
+    backgroundColor: 'customTeal.main',
+    borderRadius: '1rem',
+    boxShadow: (theme) => theme.shadows[8],
   },
   skillCard: {
     textAlign: 'center',
@@ -54,11 +59,12 @@ const SkillCard = ({ skill, img }) => {
 };
 
 const About = () => {
+  const theme = useTheme();
   return (
     <Container id="about">
-      <Grid container sx={styles.section} spacing={5}>
+      <Grid container sx={styles.section}>
         <Grid item xs={11} sm={10} sx={styles.summary}>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             About me
           </Typography>
           <Typography sx={styles.summaryContent}>
@@ -66,7 +72,17 @@ const About = () => {
             and interests. As a former Cook/Baker with a degree in Civil Engineering, I have a
             unique skill set that blends analytical thinking with creativity - exactly what is
             needed to build beautiful websites that solve problems! Take a look at some of{' '}
-            <Link href="#projects">my projects</Link> below and <Link href="#">get in touch</Link>{' '}
+            <Link
+              color={theme.palette.mode === 'light' ? 'customBlue.main' : 'customTeal.main'}
+              href="#projects">
+              my projects{' '}
+            </Link>
+            below and{' '}
+            <Link
+              color={theme.palette.mode === 'light' ? 'customBlue.main' : 'customTeal.main'}
+              href="#">
+              get in touch
+            </Link>{' '}
             to learn more!
           </Typography>
         </Grid>
