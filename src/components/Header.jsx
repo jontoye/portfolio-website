@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Box, Container, Grid, Typography, useMediaQuery } from '@mui/material';
+import { Avatar, Box, Button, Container, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import BackgroundImg from '../images/bg3.jpeg';
 import ProfileImg from '../images/profile-img.png';
@@ -7,7 +7,7 @@ import ProfileImg from '../images/profile-img.png';
 const styles = {
   section: {
     maxWidth: { xs: '700px', md: '1200px' },
-    paddingTop: { xs: '5rem', md: '11rem' },
+    paddingTop: { xs: '5rem', custom: '9rem', md: '13rem' },
   },
   greeting: {
     display: { xs: 'none', sm: 'block' },
@@ -23,41 +23,17 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttons: {
+    display: 'flex',
+    gap: '1rem',
+    marginTop: { xs: '1rem', sm: '2rem' },
+  },
   profileAvatar: {
-    display: { sm: 'none' },
-    width: '5rem',
-    height: '5rem',
+    width: { xs: '6rem', sm: '10rem', custom: '15rem', md: '20rem' },
+    height: { xs: '6rem', sm: '10rem', custom: '15rem', md: '20rem' },
     background: `url(${BackgroundImg})`,
     backgroundSize: 'cover',
-  },
-  profileImage: {
-    display: { xs: 'none', sm: 'block' },
-    position: 'relative',
-    height: '22rem',
-    width: '100%',
-    backgroundImage: `url(${BackgroundImg})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'bottom',
-    borderRadius: { xs: '50%', sm: '3rem' },
-    marginTop: '3rem',
-    transform: { xs: 'scale(0.6)', sm: 'scale(0.9)', md: 'scale(1)' },
-
-    '& img': {
-      position: 'absolute',
-      right: { md: '1rem' },
-      bottom: { xs: 0, sm: '-3rem' },
-      maxWidth: '100%',
-    },
-  },
-  imageOverlay: {
-    position: 'absolute',
-    width: '100%',
-    height: '3rem',
-    bottom: '-3rem',
-    right: 0,
-    backgroundImage: (theme) =>
-      `linear-gradient(to bottom, rgba(255,255,255, 0), ${theme.palette.background.default} 90%)`,
+    boxShadow: (theme) => theme.shadows[8],
   },
 };
 
@@ -69,24 +45,36 @@ const Header = () => {
     <Box>
       <Container sx={styles.section}>
         <Grid container spacing={2}>
-          <Grid item xs={8} sm={12} md={5} order={{ xs: 2, sm: 1 }} sx={styles.columnText}>
+          <Grid item xs={8} md={6} order={{ xs: 2, md: 2 }} sx={styles.columnText}>
             <Typography variant="h6" sx={styles.greeting}>
               Hello, I&apos;m
             </Typography>
-            <Typography variant={isSmallScreen ? 'h4' : 'h2'}>Jonathan Toye</Typography>
+            <Typography variant={isSmallScreen ? 'h3' : 'h2'}>Jonathan Toye</Typography>
             <Typography
               variant={isSmallScreen ? 'subtitle2' : 'h6'}
               color={theme.palette.mode === 'light' ? 'customBlue.main' : 'customTeal.main'}>
               A Web Developer in Toronto
             </Typography>
+            <Box sx={styles.buttons}>
+              <Button
+                variant="contained"
+                size={isSmallScreen ? 'small' : 'large'}
+                color={theme.palette.mode === 'light' ? 'customBlue' : 'customTeal'}
+                href="#projects">
+                My Projects
+              </Button>
+              <Button
+                variant="outlined"
+                size={isSmallScreen ? 'small' : 'large'}
+                color={theme.palette.mode === 'light' ? 'customBlue' : 'customTeal'}
+                href="#contact">
+                Contact Me
+              </Button>
+            </Box>
           </Grid>
 
-          <Grid item xs={4} sm={12} md={7} order={{ xs: 1, sm: 2 }} sx={styles.columnImage}>
-            <Box sx={styles.profileImage}>
-              <img src={ProfileImg} alt="Profile" />
-              <Box sx={styles.imageOverlay} />
-            </Box>
-            <Avatar sx={styles.profileAvatar} src={ProfileImg} alt="Profile" />
+          <Grid item xs={4} md={6} order={{ xs: 1, md: 1 }} sx={styles.columnImage}>
+            <Avatar sx={styles.profileAvatar} src={ProfileImg} alt="Profile" elevation={3} />
           </Grid>
         </Grid>
       </Container>

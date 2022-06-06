@@ -17,7 +17,7 @@ const IndexPage = () => {
         breakpoints: {
           values: {
             xs: 0,
-            sm: 600,
+            sm: 650,
             custom: 760,
             md: 1000,
             lg: 1200,
@@ -28,9 +28,11 @@ const IndexPage = () => {
           mode: mode,
           customBlue: {
             main: '#1a0b64',
+            contrastText: '#eee',
           },
           customTeal: {
             main: '#4fc9bc',
+            contrastText: '#000',
           },
           customGreen: {
             main: '#99ed3e',

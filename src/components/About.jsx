@@ -12,7 +12,8 @@ const skills = [
 
 const styles = {
   section: {
-    marginTop: { xs: '2rem', sm: '7rem', md: '9rem' },
+    marginTop: { xs: '1rem', sm: '2rem', md: '9.2rem' },
+    marginBottom: { xs: '1rem', sm: '2rem', md: '9.2rem' },
   },
   summary: {
     margin: '0 auto',
@@ -23,7 +24,7 @@ const styles = {
   },
   skills: {
     display: 'flex',
-    flexDirection: { xs: 'column', sm: 'row' },
+    flexDirection: { xs: 'column', custom: 'row' },
     justifyContent: 'space-between',
     margin: '0 auto',
   },
@@ -56,7 +57,7 @@ const About = () => {
   return (
     <Container id="about">
       <Grid container sx={styles.section} spacing={5}>
-        <Grid item xs={12} md={10} sx={styles.summary}>
+        <Grid item xs={11} sm={10} sx={styles.summary}>
           <Typography variant="h5" gutterBottom>
             About me
           </Typography>
@@ -69,7 +70,7 @@ const About = () => {
             to learn more!
           </Typography>
         </Grid>
-        <Grid item xs={12} md={10} sx={styles.skills}>
+        <Grid item xs={11} sm={10} sx={styles.skills}>
           {skills.map((skill) => (
             <SkillCard key={skill.id} skill={skill.name} img={skill.img} />
           ))}

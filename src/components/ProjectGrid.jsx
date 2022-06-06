@@ -27,7 +27,7 @@ const ProjectGrid = () => {
   return (
     <Container id="projects">
       <Grid container sx={styles.section}>
-        <Grid item xs={12} md={10} sx={styles.title}>
+        <Grid item xs={12} sm={10} sx={styles.title}>
           <Typography variant="h5">Projects</Typography>
         </Grid>
         <ul>
