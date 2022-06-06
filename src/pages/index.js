@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
 import ProjectGrid from '../components/ProjectGrid';
+import Contact from '../components/Contact';
 
 const IndexPage = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -65,8 +66,8 @@ const IndexPage = () => {
       <Header />
       <About />
       <ProjectGrid />
-      {/* <Contact />
-      <Footer /> */}
+      <Contact />
+      {/* <Footer /> */}
     </ThemeProvider>
   );
 };
