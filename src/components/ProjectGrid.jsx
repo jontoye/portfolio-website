@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { Box, Container, Grid, List, ListItem, ListItemButton, Paper } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import ProjectCard from './ProjectCard';
@@ -31,29 +30,8 @@ const styles = {
   },
 };
 
-const ProjectGrid = () => {
+const ProjectGrid = ({ data }) => {
   const [selectedProject, setSelectedProject] = useState(0);
-
-  const data = useStaticQuery(graphql`
-    query {
-      allMdx(
-        filter: { frontmatter: { showing: { eq: "true" } } }
-        sort: { fields: frontmatter___name }
-      ) {
-        nodes {
-          frontmatter {
-            name
-            image
-            github
-            url
-            tech
-            showing
-          }
-          body
-        }
-      }
-    }
-  `);
 
   return (
     <Box
@@ -77,7 +55,7 @@ const ProjectGrid = () => {
             <Carousel
               next={(cur) => setSelectedProject(cur)}
               prev={(cur) => setSelectedProject(cur)}
-              autoPlay={false}
+              interval={4000}
               indicators={false}
               navButtonsAlwaysVisible={true}
               index={selectedProject}

@@ -1,14 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, useMediaQuery } from '@mui/material';
+import { graphql } from 'gatsby';
 
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
 import ProjectGrid from '../components/ProjectGrid';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [mode, setMode] = useState(prefersDarkMode ? 'dark' : 'light');
 
@@ -65,11 +67,32 @@ const IndexPage = () => {
       <Navbar toggleDarkMode={toggleDarkMode} />
       <Header />
       <About />
-      <ProjectGrid />
+      <ProjectGrid data={data} />
       <Contact />
-      {/* <Footer /> */}
+      <Footer data={data} />
     </ThemeProvider>
   );
 };
+
+export const query = graphql`
+  query {
+    allMdx(
+      filter: { frontmatter: { showing: { eq: "true" } } }
+      sort: { fields: frontmatter___name }
+    ) {
+      nodes {
+        frontmatter {
+          name
+          image
+          github
+          url
+          tech
+          showing
+        }
+        body
+      }
+    }
+  }
+`;
 
 export default IndexPage;
