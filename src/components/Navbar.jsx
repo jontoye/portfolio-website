@@ -12,10 +12,12 @@ import {
   ListItemButton,
   ListItemText,
   ListItemIcon,
+  Slide,
   Switch,
   SvgIcon,
   Toolbar,
   useMediaQuery,
+  useScrollTrigger,
 } from '@mui/material';
 import { useTheme, styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
@@ -57,6 +59,18 @@ const Puller = styled(Box)(({ theme }) => ({
   left: 'calc(50% - 15px)',
 }));
 
+const HideOnScroll = ({ children, window }) => {
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+};
+
 const Navbar = ({ toggleDarkMode }) => {
   const theme = useTheme();
 
@@ -68,76 +82,78 @@ const Navbar = ({ toggleDarkMode }) => {
   };
 
   return (
-    <AppBar position="fixed" color="default">
-      <Container>
-        <Toolbar sx={styles.toolbar}>
-          <Box sx={styles.social}>
-            <IconButton
-              href="https://github.com/jontoye/"
-              target="_blank"
-              aria-label="GitHub Link"
-              color={theme.palette.mode === 'dark' ? 'customTeal' : 'default'}>
-              <GitHubIcon />
-            </IconButton>
-            <IconButton
-              href="https://www.linkedin.com/in/jonathan-toye/"
-              target="_blank"
-              aria-label="LinkedIn Link"
-              color={theme.palette.mode === 'dark' ? 'customTeal' : 'default'}>
-              <LinkedInIcon />
-            </IconButton>
-          </Box>
+    <HideOnScroll>
+      <AppBar position="fixed" color="default">
+        <Container>
+          <Toolbar sx={styles.toolbar}>
+            <Box sx={styles.social}>
+              <IconButton
+                href="https://github.com/jontoye/"
+                target="_blank"
+                aria-label="GitHub Link"
+                color={theme.palette.mode === 'dark' ? 'customTeal' : 'default'}>
+                <GitHubIcon />
+              </IconButton>
+              <IconButton
+                href="https://www.linkedin.com/in/jonathan-toye/"
+                target="_blank"
+                aria-label="LinkedIn Link"
+                color={theme.palette.mode === 'dark' ? 'customTeal' : 'default'}>
+                <LinkedInIcon />
+              </IconButton>
+            </Box>
 
-          <IconButton sx={{ display: { sm: 'none' } }} onClick={handleMenuClick}>
-            <MenuIcon />
-          </IconButton>
+            <IconButton sx={{ display: { sm: 'none' } }} onClick={handleMenuClick}>
+              <MenuIcon />
+            </IconButton>
 
-          <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+              {pages.map((page) => (
+                <Button variant="text" color="inherit" key={page.name} href={page.href}>
+                  {page.name}
+                </Button>
+              ))}
+            </Box>
+
+            <Box sx={styles.theme}>
+              <FormControlLabel
+                label={
+                  <SvgIcon sx={{ marginLeft: '1rem', marginTop: '0.5rem' }}>
+                    {theme.palette.mode === 'light' ? (
+                      <LightModeIcon />
+                    ) : (
+                      <DarkModeIcon
+                        color={theme.palette.mode === 'dark' ? 'customTeal' : 'default'}
+                      />
+                    )}
+                  </SvgIcon>
+                }
+                control={<Switch size="small" onChange={toggleDarkMode} color="default" />}
+              />
+            </Box>
+          </Toolbar>
+        </Container>
+        <SwipeableDrawer
+          anchor="top"
+          open={isMenuOpen && isSmallScreen}
+          onClose={() => setMenuOpen(false)}
+          onOpen={() => setMenuOpen(true)}>
+          <List>
             {pages.map((page) => (
-              <Button variant="text" color="inherit" key={page.name} href={page.href}>
-                {page.name}
-              </Button>
+              <ListItem key={page.name}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <page.icon />
+                  </ListItemIcon>
+                  <ListItemText>{page.name}</ListItemText>
+                </ListItemButton>
+              </ListItem>
             ))}
-          </Box>
-
-          <Box sx={styles.theme}>
-            <FormControlLabel
-              label={
-                <SvgIcon sx={{ marginLeft: '1rem', marginTop: '0.5rem' }}>
-                  {theme.palette.mode === 'light' ? (
-                    <LightModeIcon />
-                  ) : (
-                    <DarkModeIcon
-                      color={theme.palette.mode === 'dark' ? 'customTeal' : 'default'}
-                    />
-                  )}
-                </SvgIcon>
-              }
-              control={<Switch size="small" onChange={toggleDarkMode} color="default" />}
-            />
-          </Box>
-        </Toolbar>
-      </Container>
-      <SwipeableDrawer
-        anchor="top"
-        open={isMenuOpen && isSmallScreen}
-        onClose={() => setMenuOpen(false)}
-        onOpen={() => setMenuOpen(true)}>
-        <List>
-          {pages.map((page) => (
-            <ListItem key={page.name}>
-              <ListItemButton>
-                <ListItemIcon>
-                  <page.icon />
-                </ListItemIcon>
-                <ListItemText>{page.name}</ListItemText>
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Puller />
-      </SwipeableDrawer>
-    </AppBar>
+          </List>
+          <Puller />
+        </SwipeableDrawer>
+      </AppBar>
+    </HideOnScroll>
   );
 };
 
