@@ -141,7 +141,7 @@ const Navbar = ({ toggleDarkMode }) => {
           <List>
             {pages.map((page) => (
               <ListItem key={page.name}>
-                <ListItemButton>
+                <ListItemButton href={page.href} onClick={() => setMenuOpen(false)}>
                   <ListItemIcon>
                     <page.icon />
                   </ListItemIcon>
