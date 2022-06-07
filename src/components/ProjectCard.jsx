@@ -15,7 +15,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 const styles = {
   card: {
-    height: '550px',
     width: '500px',
   },
   cardActions: {
@@ -41,7 +40,7 @@ const ProjectCard = ({ project, description }) => {
         <Typography variant="h5">{project.name}</Typography>
         <MDXRenderer>{description}</MDXRenderer>
 
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} sx={{ marginTop: '1rem' }}>
           {project.tech.map((item) => (
             <Chip key={item} label={item} />
           ))}
