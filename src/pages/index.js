@@ -3,6 +3,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, useMediaQuery } from '@mui/material';
 import { graphql } from 'gatsby';
 
+import SEO from '../SEO';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
@@ -63,6 +64,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <SEO />
       <CssBaseline />
       <Navbar toggleDarkMode={toggleDarkMode} />
       <Header />
