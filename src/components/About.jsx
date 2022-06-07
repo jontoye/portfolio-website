@@ -12,7 +12,7 @@ const skills = [
 
 const styles = {
   section: {
-    marginTop: { xs: '1rem', sm: '2rem', md: '9.2rem' },
+    marginTop: { xs: '1rem', sm: '2rem', md: '12rem' },
     marginBottom: { xs: '1rem', sm: '2rem', md: '9.2rem' },
   },
   summary: {

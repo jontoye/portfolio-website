@@ -86,7 +86,15 @@ const Navbar = ({ toggleDarkMode }) => {
       <AppBar position="fixed" color="default">
         <Container>
           <Toolbar sx={styles.toolbar}>
-            <Box sx={styles.social}>
+            <Box>
+              <Button
+                sx={{ marginRight: '1rem', borderRadius: '30px' }}
+                variant="contained"
+                color={theme.palette.mode === 'dark' ? 'customTeal' : 'customBlue'}
+                href="/resume.pdf"
+                target="_blank">
+                Resume
+              </Button>
               <IconButton
                 href="https://github.com/jontoye/"
                 target="_blank"
