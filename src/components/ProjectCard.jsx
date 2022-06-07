@@ -15,7 +15,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 const styles = {
   card: {
-    height: '100%',
+    height: '550px',
+    width: '500px',
   },
   cardActions: {
     justifyContent: 'center',
