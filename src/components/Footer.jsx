@@ -26,7 +26,15 @@ const Footer = ({ data }) => {
             <Typography variant="h3" sx={styles.initials}>
               JT
             </Typography>
-            <Typography variant="caption">&copy;2022 Jonathan Toye</Typography>
+            <Typography variant="caption">
+              &copy;2022{' '}
+              <Link
+                color="customBlue.main"
+                href="https://github.com/jontoye/portfolio-website"
+                target="_blank">
+                Designed & built by Jonathan Toye
+              </Link>
+            </Typography>
           </Grid>
           <Grid item xs={12} sm={3} md={2}>
             <Typography variant="subtitle" color="customBlue.main">
