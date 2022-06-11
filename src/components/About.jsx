@@ -68,22 +68,25 @@ const About = () => {
             About me
           </Typography>
           <Typography sx={styles.summaryContent}>
-            I am a recent bootcamp graduate with a passion for learning and a wide range of skills
-            and interests. As a former Cook/Baker with a degree in Civil Engineering, I have a
-            unique skill set that blends analytical thinking with creativity - exactly what is
-            needed to build beautiful websites that solve problems! Take a look at some of{' '}
+            I am a recent graduate from General Assembly’s Software Engineering Immersive (SEI)
+            program with a passion for technology and learning. I have a degree in civil
+            engineering, and also happen to be a professional chef and baker, most recently part of
+            the core team at one of Toronto’s top bakeries. Ultimately my diverse experiences all
+            tie back to a passion for designing, creating, analyzing and optimizing - whether it be
+            a web application, a building repair strategy, or the perfect loaf of bread! I am
+            excited about establishing a career in the tech industry and would love to{' '}
+            <Link
+              color={theme.palette.mode === 'light' ? 'customBlue.main' : 'customTeal.main'}
+              href="#contact">
+              connect.
+            </Link>{' '}
+            Take a look at some of{' '}
             <Link
               color={theme.palette.mode === 'light' ? 'customBlue.main' : 'customTeal.main'}
               href="#projects">
               my projects{' '}
             </Link>
-            below and{' '}
-            <Link
-              color={theme.palette.mode === 'light' ? 'customBlue.main' : 'customTeal.main'}
-              href="#">
-              get in touch
-            </Link>{' '}
-            to learn more!
+            below!
           </Typography>
         </Grid>
         <Grid item xs={11} sm={10} sx={styles.skills}>
