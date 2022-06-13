@@ -22,6 +22,7 @@ const styles = {
   summaryContent: {
     fontSize: '1.125rem',
     lineHeight: 1.5,
+    marginBottom: '1.5rem',
   },
   skills: {
     display: 'flex',
@@ -71,10 +72,13 @@ const About = () => {
             I am a recent graduate from General Assembly’s Software Engineering Immersive (SEI)
             program with a passion for technology and learning. I have a degree in civil
             engineering, and also happen to be a professional chef and baker, most recently part of
-            the core team at one of Toronto’s top bakeries. Ultimately my diverse experiences all
-            tie back to a passion for designing, creating, analyzing and optimizing - whether it be
-            a web application, a building repair strategy, or the perfect loaf of bread! I am
-            excited about establishing a career in the tech industry and would love to{' '}
+            the core team at one of Toronto’s top bakeries.
+          </Typography>
+          <Typography sx={styles.summaryContent}>
+            Ultimately my diverse experiences all tie back to a passion for designing, creating,
+            analyzing and optimizing - whether it be a web application, a building repair strategy,
+            or the perfect loaf of bread! I am excited about establishing a career in the tech
+            industry and would love to{' '}
             <Link
               color={theme.palette.mode === 'light' ? 'customBlue.main' : 'customTeal.main'}
               href="#contact">

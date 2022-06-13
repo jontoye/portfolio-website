@@ -15,7 +15,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 const styles = {
   card: {
-    width: '500px',
+    width: '450px',
+    borderRadius: '20px',
   },
   cardActions: {
     justifyContent: 'center',
@@ -33,10 +34,10 @@ const ProjectCard = ({ project, description }) => {
         component="img"
         image={project.image}
         alt={`${project.name} sample`}
-        height="300px"
+        height="260px"
       />
 
-      <CardContent>
+      <CardContent sx={{ padding: '10px 30px' }}>
         <Typography variant="h5">{project.name}</Typography>
         <MDXRenderer>{description}</MDXRenderer>
 
